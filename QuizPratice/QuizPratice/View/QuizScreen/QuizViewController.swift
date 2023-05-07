@@ -23,6 +23,7 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewConfig()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "266471") ?? UIImage())
     }
     
     private func collectionViewConfig() {
@@ -36,20 +37,33 @@ class QuizViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    func pickedAnswer() {
+    @IBAction func exitPressed(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func nextPressed(_ sender: Any) {
+        
+        if !answerSelected {
+            let alert = UIAlertController(title: "Selecione uma opção", message: "Por favor selecione uma resposta para ir para próxima questão.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        answerSelected = false
         if isCorrectAnswer {
             points += 1
         }
         
-        if index<(self.questions?.count ?? 0) {
+        if index<(self.questions?.count ?? 0) - 1 {
             index += 1
             collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .right, animated: true)
         } else {
             guard let vc = UIStoryboard(name: "ResultsViewController", bundle: nil).instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController else {return}
+            vc.result = points
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-
 }
 
 extension QuizViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

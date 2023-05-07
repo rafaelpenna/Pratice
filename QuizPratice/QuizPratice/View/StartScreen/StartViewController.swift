@@ -9,6 +9,13 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    @IBOutlet var logoImageView: UIImageView! {
+        didSet {
+            
+        logoImageView.tintColor = UIColor.white
+        }
+    }
+    
     @IBOutlet var startButton: UIButton! {
         didSet {
             startButton.layer.cornerRadius = startButton.frame.height / 2
@@ -20,11 +27,9 @@ class StartViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "peakpx") ?? UIImage())
     }
     
 

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="coZ-cw-CCa">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="olj-Ej-icX">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" id="fgM-pe-7HQ" customClass="StartViewController" customModule="QuizPratice" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gvW-CD-XgK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-mU-qiH">
+                                <rect key="frame" x="147" y="231" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="DTT-Cf-Bxs"/>
+                                    <constraint firstAttribute="height" constant="120" id="fcg-zt-K07"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estude Engenharia de Software" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gL-1Z-RQb">
+                                <rect key="frame" x="20" y="391" width="374" height="72"/>
+                                <color key="tintColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSE-ST-OX9">
+                                <rect key="frame" x="30" y="513" width="354" height="38"/>
+                                <color key="backgroundColor" red="0.22947746520000001" green="0.3471602499" blue="0.59200894829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="COMEÇAR">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="fgM-pe-7HQ" eventType="touchUpInside" id="udd-aF-iEt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-Yr-gwt">
+                                <rect key="frame" x="30" y="591" width="354" height="38"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="DISCIPLINAS">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="subjectsButtonTapped:" destination="fgM-pe-7HQ" eventType="touchUpInside" id="GSS-Nh-FWY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DBJ-PP-alX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BSE-ST-OX9" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="30" id="7zi-bX-aBn"/>
+                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="20" id="BnZ-KT-E5v"/>
+                            <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="lQd-Yr-gwt" secondAttribute="trailing" constant="30" id="FUV-2M-dy1"/>
+                            <constraint firstItem="xLz-mU-qiH" firstAttribute="top" secondItem="DBJ-PP-alX" secondAttribute="top" constant="143" id="Mv8-qi-HZa"/>
+                            <constraint firstItem="lQd-Yr-gwt" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="NWa-V3-xDz"/>
+                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="SOa-13-vxE"/>
+                            <constraint firstItem="lQd-Yr-gwt" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="30" id="XhA-de-B4p"/>
+                            <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="BSE-ST-OX9" secondAttribute="trailing" constant="30" id="aWr-AG-Om2"/>
+                            <constraint firstItem="BSE-ST-OX9" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="bkc-iB-71U"/>
+                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="top" secondItem="xLz-mU-qiH" secondAttribute="bottom" constant="40" id="eBk-QF-sAv"/>
+                            <constraint firstItem="lQd-Yr-gwt" firstAttribute="top" secondItem="BSE-ST-OX9" secondAttribute="bottom" constant="40" id="las-TG-L1F"/>
+                            <constraint firstAttribute="trailing" secondItem="7gL-1Z-RQb" secondAttribute="trailing" constant="20" id="rCx-aY-F60"/>
+                            <constraint firstItem="xLz-mU-qiH" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="weV-Z9-Qbf"/>
+                            <constraint firstItem="BSE-ST-OX9" firstAttribute="top" secondItem="7gL-1Z-RQb" secondAttribute="bottom" constant="50" id="xNa-8z-7af"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PiJ-mb-sXr"/>
+                    <connections>
+                        <outlet property="startButton" destination="BSE-ST-OX9" id="Szy-bO-m01"/>
+                        <outlet property="subjectsButton" destination="lQd-Yr-gwt" id="1HM-iP-s8K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O0i-7Z-AOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-43.478260869565219" y="62.946428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="onW-oY-Zwy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="coZ-cw-CCa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nOg-UQ-hbM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="fgM-pe-7HQ" kind="relationship" relationship="rootViewController" id="mW2-Eo-EXK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vla-6u-7Dc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-953.62318840579712" y="62.946428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

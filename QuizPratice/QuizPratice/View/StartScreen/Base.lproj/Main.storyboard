@@ -4,7 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,24 +16,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pngegg" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-mU-qiH">
-                                <rect key="frame" x="147" y="231" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="xLz-mU-qiH">
+                                <rect key="frame" x="162" y="168" width="90" height="90"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="DTT-Cf-Bxs"/>
-                                    <constraint firstAttribute="height" constant="120" id="fcg-zt-K07"/>
+                                    <constraint firstAttribute="width" constant="90" id="DTT-Cf-Bxs"/>
+                                    <constraint firstAttribute="height" constant="90" id="fcg-zt-K07"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estude Engenharia de Software" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gL-1Z-RQb">
-                                <rect key="frame" x="20" y="391" width="374" height="72"/>
+                                <rect key="frame" x="40" y="283" width="334" height="62.5"/>
                                 <color key="tintColor" red="0.0" green="0.69019607839999997" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-Yr-gwt">
+                                <rect key="frame" x="30" y="405.5" width="354" height="38"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.054901960784313725" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ESCOLHA SUA DISCIPLINA:">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="subjectsButtonTapped:" destination="fgM-pe-7HQ" eventType="touchUpInside" id="GSS-Nh-FWY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dj-3B-Ri5">
+                                <rect key="frame" x="30" y="458.5" width="354" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <menu key="menu" id="LaX-e8-90Y">
+                                    <children>
+                                        <command title="Item 1" id="dyR-m9-Xax"/>
+                                        <command title="Item 2" id="FwP-xv-WGK"/>
+                                    </children>
+                                </menu>
+                                <state key="normal" title="Sistemas Operacionais">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSE-ST-OX9">
-                                <rect key="frame" x="30" y="513" width="354" height="38"/>
-                                <color key="backgroundColor" red="0.22947746520000001" green="0.3471602499" blue="0.59200894829999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="60" y="734" width="294" height="38"/>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.054901960784313725" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="COMEÇAR">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
@@ -43,41 +70,33 @@
                                     <action selector="startButtonTapped:" destination="fgM-pe-7HQ" eventType="touchUpInside" id="udd-aF-iEt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQd-Yr-gwt">
-                                <rect key="frame" x="30" y="591" width="354" height="38"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="DISCIPLINAS">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="subjectsButtonTapped:" destination="fgM-pe-7HQ" eventType="touchUpInside" id="GSS-Nh-FWY"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DBJ-PP-alX"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.039215686274509803" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="BSE-ST-OX9" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="30" id="7zi-bX-aBn"/>
-                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="20" id="BnZ-KT-E5v"/>
+                            <constraint firstItem="4dj-3B-Ri5" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="30" id="44l-Iw-1tX"/>
+                            <constraint firstItem="BSE-ST-OX9" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="60" id="7zi-bX-aBn"/>
+                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="40" id="BnZ-KT-E5v"/>
                             <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="lQd-Yr-gwt" secondAttribute="trailing" constant="30" id="FUV-2M-dy1"/>
-                            <constraint firstItem="xLz-mU-qiH" firstAttribute="top" secondItem="DBJ-PP-alX" secondAttribute="top" constant="143" id="Mv8-qi-HZa"/>
+                            <constraint firstItem="xLz-mU-qiH" firstAttribute="top" secondItem="DBJ-PP-alX" secondAttribute="top" constant="80" id="Mv8-qi-HZa"/>
                             <constraint firstItem="lQd-Yr-gwt" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="NWa-V3-xDz"/>
+                            <constraint firstItem="4dj-3B-Ri5" firstAttribute="top" secondItem="lQd-Yr-gwt" secondAttribute="bottom" constant="15" id="RVj-L1-S2c"/>
+                            <constraint firstItem="lQd-Yr-gwt" firstAttribute="top" secondItem="7gL-1Z-RQb" secondAttribute="bottom" constant="60" id="Rm2-cq-x87"/>
                             <constraint firstItem="7gL-1Z-RQb" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="SOa-13-vxE"/>
+                            <constraint firstItem="4dj-3B-Ri5" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="Wo9-Ac-3WU"/>
                             <constraint firstItem="lQd-Yr-gwt" firstAttribute="leading" secondItem="DBJ-PP-alX" secondAttribute="leading" constant="30" id="XhA-de-B4p"/>
-                            <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="BSE-ST-OX9" secondAttribute="trailing" constant="30" id="aWr-AG-Om2"/>
+                            <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="BSE-ST-OX9" secondAttribute="trailing" constant="60" id="aWr-AG-Om2"/>
                             <constraint firstItem="BSE-ST-OX9" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="bkc-iB-71U"/>
-                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="top" secondItem="xLz-mU-qiH" secondAttribute="bottom" constant="40" id="eBk-QF-sAv"/>
-                            <constraint firstItem="lQd-Yr-gwt" firstAttribute="top" secondItem="BSE-ST-OX9" secondAttribute="bottom" constant="40" id="las-TG-L1F"/>
-                            <constraint firstAttribute="trailing" secondItem="7gL-1Z-RQb" secondAttribute="trailing" constant="20" id="rCx-aY-F60"/>
+                            <constraint firstItem="7gL-1Z-RQb" firstAttribute="top" secondItem="xLz-mU-qiH" secondAttribute="bottom" constant="25" id="eBk-QF-sAv"/>
+                            <constraint firstItem="DBJ-PP-alX" firstAttribute="bottom" secondItem="BSE-ST-OX9" secondAttribute="bottom" constant="90" id="jRi-dt-ty5"/>
+                            <constraint firstItem="DBJ-PP-alX" firstAttribute="trailing" secondItem="4dj-3B-Ri5" secondAttribute="trailing" constant="30" id="kkW-Af-9U9"/>
+                            <constraint firstAttribute="trailing" secondItem="7gL-1Z-RQb" secondAttribute="trailing" constant="40" id="rCx-aY-F60"/>
                             <constraint firstItem="xLz-mU-qiH" firstAttribute="centerX" secondItem="DBJ-PP-alX" secondAttribute="centerX" id="weV-Z9-Qbf"/>
-                            <constraint firstItem="BSE-ST-OX9" firstAttribute="top" secondItem="7gL-1Z-RQb" secondAttribute="bottom" constant="50" id="xNa-8z-7af"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PiJ-mb-sXr"/>
                     <connections>
+                        <outlet property="chooseSubjectButton" destination="4dj-3B-Ri5" id="KXC-Kp-eYH"/>
                         <outlet property="logoImageView" destination="xLz-mU-qiH" id="maU-8a-bxI"/>
                         <outlet property="startButton" destination="BSE-ST-OX9" id="Szy-bO-m01"/>
                         <outlet property="subjectsButton" destination="lQd-Yr-gwt" id="1HM-iP-s8K"/>
@@ -107,12 +126,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pngegg" width="512" height="512"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="logo2" width="2938" height="2463"/>
     </resources>
 </document>

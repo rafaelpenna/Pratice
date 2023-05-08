@@ -121,6 +121,7 @@ class QuizCollectionViewCell: UICollectionViewCell {
     
     func updateBorder(myView: UIView, borderWidth: CGFloat = 0) {
         myView.layer.borderWidth = borderWidth
-        myView.layer.borderColor = UIColor.white.cgColor
+        myView.layer.borderColor = CGColor(red: 229/255, green: 14/255, blue: 79/255, alpha: 1)
+
     }
 }

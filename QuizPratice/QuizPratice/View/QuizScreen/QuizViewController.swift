@@ -20,10 +20,33 @@ class QuizViewController: UIViewController {
     var points = 0
     var index = 0
     
+    @IBOutlet var exitButton: UIButton! {
+        didSet {
+            exitButton.layer.cornerRadius = exitButton.frame.height / 2
+        }
+    }
+    
+    @IBOutlet var previousButton: UIButton! {
+        didSet {
+            previousButton.layer.cornerRadius = previousButton.frame.height / 2
+        }
+    }
+    
+    @IBOutlet var homeButton: UIButton! {
+        didSet {
+            homeButton.layer.cornerRadius = homeButton.frame.height / 2
+        }
+    }
+    
+    @IBOutlet var nextButton: UIButton! {
+        didSet {
+            nextButton.layer.cornerRadius = nextButton.frame.height / 2
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionViewConfig()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "266471") ?? UIImage())
     }
     
     private func collectionViewConfig() {
@@ -37,7 +60,14 @@ class QuizViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    @IBAction func exitPressed(_ sender: Any) {
+    @IBAction func previousPressed(_ sender: Any) {
+        if index<(self.questions?.count ?? 0) - 1 {
+            index -= 1
+            collectionView.scrollToItem(at: IndexPath(row: index, section: 0), at: .left, animated: true)
+        }
+    }
+    
+    @IBAction func homePressed(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
     }
     

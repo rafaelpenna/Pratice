@@ -8,6 +8,8 @@
 import UIKit
 
 class StartViewController: UIViewController {
+    
+    var subjectsList = ["Sistemas Operacionais", "Direito Cibernético", "Linguagem de Programação", "Modelagem de Dados", "Análise Orientada a Objetos", "Engenharia de Requisitos"]
 
     @IBOutlet var logoImageView: UIImageView!
 
@@ -17,11 +19,15 @@ class StartViewController: UIViewController {
         }
     }
     
+    @IBOutlet var tableViewSubjects: UITableView!
+    
+    
     @IBOutlet var chooseSubjectButton: UIButton! {
         didSet {
             chooseSubjectButton.layer.borderColor = UIColor.white.cgColor
             chooseSubjectButton.layer.borderWidth = 1
             chooseSubjectButton.layer.cornerRadius = chooseSubjectButton.frame.height / 2
+            chooseSubjectButton.isHidden = false
         }
     }
     
@@ -33,8 +39,19 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupProtocols()
+        tableViewConfig()
     }
     
+    private func tableViewConfig() {
+        tableViewSubjects.isHidden = true
+        tableViewSubjects.separatorStyle = .none
+    }
+
+    private func setupProtocols() {
+        tableViewSubjects.delegate = self
+        tableViewSubjects.dataSource = self
+    }
     
     @IBAction func startButtonTapped(_ sender: Any) {
         guard let vc = UIStoryboard(name: "QuizViewController", bundle: nil).instantiateViewController(withIdentifier: "QuizViewController") as? QuizViewController else {return}
@@ -43,7 +60,50 @@ class StartViewController: UIViewController {
 
     
     @IBAction func subjectsButtonTapped(_ sender: UIButton) {
-        guard let vc = UIStoryboard(name: "ResultsViewController", bundle: nil).instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController else {return}
-        self.navigationController?.pushViewController(vc, animated: true)
+        if self.tableViewSubjects.isHidden {
+            animateList(toogle: true)
+            hiddenButton(toogle: true)
+        } else {
+            animateList(toogle: false)
+            hiddenButton(toogle: false)
+        }
+    }
+    
+    func animateList(toogle: Bool) {
+        if toogle {
+            UIView.animate(withDuration: 0.3) {
+                self.tableViewSubjects.isHidden = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.tableViewSubjects.isHidden = true
+            }
+        }
+    }
+    
+    func hiddenButton(toogle: Bool) {
+        if toogle {
+            self.chooseSubjectButton.isHidden = true
+        } else {
+            self.chooseSubjectButton.isHidden = false
+        }
+    }
+}
+
+extension StartViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjectsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = subjectsList[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        chooseSubjectButton.setTitle("\(subjectsList[indexPath.row])", for: .normal)
+        animateList(toogle: false)
+        hiddenButton(toogle: false)
     }
 }

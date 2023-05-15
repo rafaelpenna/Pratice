@@ -10,6 +10,8 @@ import UIKit
 class StartViewController: UIViewController {
     
     var subjectsList = ["Sistemas Operacionais", "Direito Cibernético", "Linguagem de Programação", "Modelagem de Dados", "Análise Orientada a Objetos", "Engenharia de Requisitos"]
+    
+    var subjectsSearch = [String]()
 
     @IBOutlet var logoImageView: UIImageView!
 
@@ -18,9 +20,25 @@ class StartViewController: UIViewController {
             subjectsButton.layer.cornerRadius = subjectsButton.frame.height / 2
         }
     }
+    @IBOutlet var searchImageView: UIImageView! {
+        didSet {
+            searchImageView.isHidden = true
+        }
+    }
+    
+    @IBOutlet var backgroundLabel: UILabel! {
+        didSet {
+            backgroundLabel.isHidden = true
+        }
+    }
+    
+    @IBOutlet var searchField: UITextField! {
+        didSet {
+            searchField.isHidden = true
+        }
+    }
     
     @IBOutlet var tableViewSubjects: UITableView!
-    
     
     @IBOutlet var chooseSubjectButton: UIButton! {
         didSet {
@@ -41,6 +59,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         tableViewConfig()
+        self.subjectsSearch = subjectsList
     }
     
     private func tableViewConfig() {
@@ -69,14 +88,28 @@ class StartViewController: UIViewController {
         }
     }
     
+    @IBAction func searchHandler(_ sender: UITextField) {
+        if let searchText = sender.text {
+            subjectsSearch = subjectsList.filter{$0.lowercased().contains(searchText.lowercased())}
+            tableViewSubjects.reloadData()
+        }
+        clearText()
+    }
+    
     func animateList(toogle: Bool) {
         if toogle {
             UIView.animate(withDuration: 0.3) {
                 self.tableViewSubjects.isHidden = false
+                self.searchField.isHidden = false
+                self.searchImageView.isHidden = false
+                self.backgroundLabel.isHidden = false
             }
         } else {
             UIView.animate(withDuration: 0.3) {
                 self.tableViewSubjects.isHidden = true
+                self.searchField.isHidden = true
+                self.searchImageView.isHidden = true
+                self.backgroundLabel.isHidden = true
             }
         }
     }
@@ -88,22 +121,32 @@ class StartViewController: UIViewController {
             self.chooseSubjectButton.isHidden = false
         }
     }
+    
+    func clearText() {
+        if searchField.text == "" {
+            self.subjectsSearch = subjectsList
+            tableViewSubjects.reloadData()
+        }
+    }
 }
 
 extension StartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjectsList.count
+        return subjectsSearch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = subjectsList[indexPath.row]
+        cell.textLabel?.text = subjectsSearch[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        chooseSubjectButton.setTitle("\(subjectsList[indexPath.row])", for: .normal)
+        chooseSubjectButton.setTitle("\(subjectsSearch[indexPath.row])", for: .normal)
         animateList(toogle: false)
         hiddenButton(toogle: false)
+        searchField.text = ""
+        clearText()
     }
 }
+

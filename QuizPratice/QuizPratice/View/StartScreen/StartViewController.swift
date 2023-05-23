@@ -9,7 +9,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    var subjectsList = ["Sistemas Operacionais", "Direito Cibernético", "Linguagem de Programação", "Modelagem de Dados", "Análise Orientada a Objetos", "Engenharia de Requisitos"]
+    var startViewModel = StartViewModel()  
     
     var subjectsSearch = [String]()
 
@@ -59,7 +59,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         tableViewConfig()
-        self.subjectsSearch = subjectsList
+        self.subjectsSearch = startViewModel.getData
     }
     
     private func tableViewConfig() {
@@ -90,7 +90,7 @@ class StartViewController: UIViewController {
     
     @IBAction func searchHandler(_ sender: UITextField) {
         if let searchText = sender.text {
-            subjectsSearch = subjectsList.filter{$0.lowercased().contains(searchText.lowercased())}
+            subjectsSearch = startViewModel.getData.filter{$0.lowercased().contains(searchText.lowercased())}
             tableViewSubjects.reloadData()
         }
         clearText()
@@ -124,11 +124,13 @@ class StartViewController: UIViewController {
     
     func clearText() {
         if searchField.text == "" {
-            self.subjectsSearch = subjectsList
+            self.subjectsSearch = startViewModel.getData
             tableViewSubjects.reloadData()
         }
     }
 }
+
+//MARK: - Config Protocol TableView
 
 extension StartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

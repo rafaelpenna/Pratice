@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import Lottie
 
 class ResultsViewController: UIViewController {
+    
+    var animationView = LottieAnimationView()
 
+    @IBOutlet var finalImageView: UIImageView!
     @IBOutlet var finishMessageLabel: UILabel!
     @IBOutlet var resultLabel: UILabel!
     @IBOutlet var adviceMessageLabel: UILabel!
@@ -17,7 +21,7 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "1909") ?? UIImage())
+        setupAnimation()
         dataComplete()
     }
     
@@ -36,6 +40,16 @@ class ResultsViewController: UIViewController {
             adviceMessageLabel.text = "Você já sabe bastante sobre o assunto. Continue assim!"
         }
         
+    }
+    
+    private func setupAnimation() {
+        animationView = .init(name: "trophy")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.frame = finalImageView.frame
+        animationView.animationSpeed = 1.0
+        finalImageView.addSubview(animationView)
+        animationView.play()
     }
     
     @IBAction func backToMenuPressed(_ sender: Any) {
